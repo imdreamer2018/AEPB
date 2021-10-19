@@ -46,4 +46,13 @@ class ParkingBoyTests {
 
         assertNotNull(parkingTicket);
     }
+
+    @Test
+    void should_to_be_in_order_when_parking_boy_parking_car_given_valid_car() {
+        Car car = new Car();
+
+        parkingBoy.parkingCar(car);
+
+        assertEquals(49, parkingLot1.getAvailablePosition());
+    }
 }
