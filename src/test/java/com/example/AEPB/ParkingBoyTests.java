@@ -105,4 +105,14 @@ class ParkingBoyTests {
 
         assertEquals("you can not give me a null car", nullPointerException.getMessage());
     }
+
+    @Test
+    void should_return_car_when_pick_up_by_parking_boy_given_valid_parking_ticket() {
+        Car car = new Car();
+
+        ParkingTicket parkingTicket = parkingBoy.parkingCar(car);
+        Car fetchCar = parkingBoy.pickUpCar(parkingTicket);
+
+        assertSame(car, fetchCar);
+    }
 }
