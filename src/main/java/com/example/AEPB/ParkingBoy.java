@@ -31,6 +31,8 @@ public class ParkingBoy {
                 e.printStackTrace();
             }
         }
-       return car;
+        if (car == null)
+            throw new IllegalAccessError("this parking ticket is invalid");
+        return car;
     }
 }
