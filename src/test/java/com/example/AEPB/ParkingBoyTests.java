@@ -74,4 +74,26 @@ class ParkingBoyTests {
 
         assertEquals(49, parkingLot2.getAvailablePosition());
     }
+
+    @Test
+    void should_parking_failed_when_parking_boy_parking_car_given_valid_car_and_all_parkingLots_have_no_position() {
+        for (int i = 0; i < 50; i++) {
+            parkingLot1.parking(new Car());
+            parkingLot2.parking(new Car());
+            parkingLot3.parking(new Car());
+            parkingLot4.parking(new Car());
+            parkingLot5.parking(new Car());
+            parkingLot6.parking(new Car());
+            parkingLot7.parking(new Car());
+            parkingLot8.parking(new Car());
+            parkingLot9.parking(new Car());
+            parkingLot10.parking(new Car());
+        }
+
+        Car car = new Car();
+
+        IllegalAccessError illegalAccessError = assertThrows(IllegalAccessError.class, () -> parkingBoy.parkingCar(car));
+
+        assertEquals("parkingLot is not enough", illegalAccessError.getMessage());
+    }
 }
