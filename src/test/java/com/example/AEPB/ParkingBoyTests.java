@@ -3,6 +3,8 @@ package com.example.AEPB;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -36,6 +38,11 @@ class ParkingBoyTests {
         parkingLot8 = new ParkingLot();
         parkingLot9 = new ParkingLot();
         parkingLot10 = new ParkingLot();
+        parkingBoy.managementParkingLot(List.of(
+                parkingLot1, parkingLot2, parkingLot3,
+                parkingLot4, parkingLot5 ,parkingLot6,
+                parkingLot7, parkingLot8, parkingLot9,
+                parkingLot10));
     }
 
     @Test
