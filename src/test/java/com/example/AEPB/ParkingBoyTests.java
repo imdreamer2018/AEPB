@@ -103,6 +103,6 @@ class ParkingBoyTests {
 
         NullPointerException nullPointerException = assertThrows(NullPointerException.class, () -> parkingBoy.parkingCar(car));
 
-        assertEquals("you cannot give me a null car", nullPointerException.getMessage());
+        assertEquals("you can not give me a null car", nullPointerException.getMessage());
     }
 }
