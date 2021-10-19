@@ -21,4 +21,16 @@ public class ParkingBoy {
                                                         .orElseThrow(() -> new IllegalAccessError("parkingLot is not enough"));
         return canParkingParkingLot.parking(car);
     }
+
+    public Car pickUpCar(ParkingTicket parkingTicket) {
+        Car car = null;
+        for (ParkingLot parkingLot : parkingLotList) {
+            try {
+                car = parkingLot.pickUp(parkingTicket);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+       return car;
+    }
 }
