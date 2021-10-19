@@ -115,4 +115,26 @@ class ParkingBoyTests {
 
         assertSame(car, fetchCar);
     }
+
+    @Test
+    void should_return_car_when_pick_up_by_parking_boy_given_valid_parking_ticket_parking_by_self() {
+        Car car = new Car();
+        ParkingTicket parkingTicket = parkingLot1.parking(car);
+
+        Car fetchCar = parkingBoy.pickUpCar(parkingTicket);
+
+        assertSame(car, fetchCar);
+    }
+
+    @Test
+    void should_pick_up_failed_when_pick_up_by_parking_boy_given_invalid_parking_ticket() {
+        ParkingTicket parkingTicket = null;
+        ParkingTicket parkingTicket1 = new ParkingTicket();
+
+        IllegalAccessError illegalAccessError = assertThrows(IllegalAccessError.class, () -> parkingBoy.pickUpCar(parkingTicket));
+        IllegalAccessError illegalAccessError1 = assertThrows(IllegalAccessError.class, () -> parkingBoy.pickUpCar(parkingTicket1));
+
+        assertEquals("this parking ticket is invalid", illegalAccessError.getMessage());
+        assertEquals("this parking ticket is invalid", illegalAccessError1.getMessage());
+    }
 }
