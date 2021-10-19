@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ParkingBoy {
 
-    private List<ParkingLot> parkingLotList = new ArrayList();
+    private final List<ParkingLot> parkingLotList = new ArrayList<>();
 
     public void managementParkingLot(List<ParkingLot> parkingLots) {
         parkingLotList.addAll(parkingLots);

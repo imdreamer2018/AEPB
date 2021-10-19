@@ -96,4 +96,13 @@ class ParkingBoyTests {
 
         assertEquals("parkingLot is not enough", illegalAccessError.getMessage());
     }
+
+    @Test
+    void should_parking_failed_when_parking_boy_parking_car_given_invalid_car() {
+        Car car = null;
+
+        NullPointerException nullPointerException = assertThrows(NullPointerException.class, () -> parkingBoy.parkingCar(car));
+
+        assertEquals("you cannot give me a null car", nullPointerException.getMessage());
+    }
 }
