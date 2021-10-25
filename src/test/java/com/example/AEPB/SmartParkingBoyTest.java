@@ -29,16 +29,16 @@ class SmartParkingBoyTest {
 
     @BeforeEach
     public void initParkingLot() {
-        parkingLot1 = new ParkingLot();
-        parkingLot2 = new ParkingLot();
-        parkingLot3 = new ParkingLot();
-        parkingLot4 = new ParkingLot();
-        parkingLot5 = new ParkingLot();
-        parkingLot6 = new ParkingLot();
-        parkingLot7 = new ParkingLot();
-        parkingLot8 = new ParkingLot();
-        parkingLot9 = new ParkingLot();
-        parkingLot10 = new ParkingLot();
+        parkingLot1 = new ParkingLot(1);
+        parkingLot2 = new ParkingLot(2);
+        parkingLot3 = new ParkingLot(3);
+        parkingLot4 = new ParkingLot(4);
+        parkingLot5 = new ParkingLot(5);
+        parkingLot6 = new ParkingLot(6);
+        parkingLot7 = new ParkingLot(7);
+        parkingLot8 = new ParkingLot(8);
+        parkingLot9 = new ParkingLot(9);
+        parkingLot10 = new ParkingLot(10);
         parkingBoy.managementParkingLot(List.of(
                 parkingLot1, parkingLot2, parkingLot3,
                 parkingLot4, parkingLot5 ,parkingLot6,
@@ -105,7 +105,7 @@ class SmartParkingBoyTest {
     //when 聪明男孩停车
     //then 提示异常
     @Test
-    void should_parking_falied_when_smart_parking_boy_parking_car_given_invalid_car() {
+    void should_parking_failed_when_smart_parking_boy_parking_car_given_invalid_car() {
         Car car = null;
 
         NullPointerException nullPointerException = assertThrows(NullPointerException.class, () -> smartParkingBoy.parkingCar(car));

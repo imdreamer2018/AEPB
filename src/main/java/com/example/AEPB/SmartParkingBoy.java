@@ -1,6 +1,7 @@
 package com.example.AEPB;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class SmartParkingBoy {
@@ -12,10 +13,29 @@ public class SmartParkingBoy {
     }
 
     public ParkingTicket parkingCar(Car car) {
-        return new ParkingTicket();
+        if (car == null)
+            throw new NullPointerException("you can not give me a null car");
+        return parkingLotList.stream()
+                             .min(Comparator.comparing(ParkingLot::getAvailablePosition)
+                                                     .reversed()
+                                                     .thenComparing(ParkingLot::getParkingLotNumber))
+                             .get().parking(car);
+
+
+
     }
 
     public Car pickUpCar(ParkingTicket parkingTicket) {
-        return new Car();
+        Car car = null;
+        for (ParkingLot parkingLot : parkingLotList) {
+            try {
+                car = parkingLot.pickUp(parkingTicket);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+        if (car == null)
+            throw new IllegalAccessError("this parking ticket is invalid");
+        return car;
     }
 }

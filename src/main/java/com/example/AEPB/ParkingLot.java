@@ -6,6 +6,17 @@ import java.util.Map;
 public class ParkingLot {
 
     int position = 50;
+    int parkingLotNumber;
+
+    public ParkingLot(int parkingLotNumber) {
+        this.parkingLotNumber = parkingLotNumber;
+    }
+
+    public ParkingLot() { }
+
+    public int getParkingLotNumber() {
+        return parkingLotNumber;
+    }
 
     private final Map<ParkingTicket, Car> ticketCarMap = new HashMap<>();
 
