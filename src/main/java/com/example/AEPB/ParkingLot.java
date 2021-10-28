@@ -6,6 +6,7 @@ import java.util.Map;
 public class ParkingLot {
 
     int position = 50;
+    int availablePosition = 50;
     int parkingLotNumber;
 
     public ParkingLot(int parkingLotNumber) {
@@ -14,6 +15,7 @@ public class ParkingLot {
 
     public ParkingLot(int parkingLotNumber, int position) {
         this.position = position;
+        this.availablePosition = position;
         this.parkingLotNumber = parkingLotNumber;
     }
 
@@ -30,17 +32,21 @@ public class ParkingLot {
             throw new NullPointerException("car should not be null");
         if (ticketCarMap.containsValue(car))
             throw new IllegalArgumentException("car should not be parking twice");
-        if (position <= 0)
+        if (availablePosition <= 0)
             throw new IllegalArgumentException("position is not enough");
 
         ParkingTicket parkingTicket = new ParkingTicket();
         ticketCarMap.put(parkingTicket, car);
-        position -= 1;
+        availablePosition -= 1;
         return parkingTicket;
     }
 
     public int getAvailablePosition() {
-        return position;
+        return availablePosition;
+    }
+
+    public float getVacancyRate() {
+        return (float) availablePosition / position;
     }
 
     public Car pickUp(ParkingTicket parkingTicket) {
@@ -49,7 +55,7 @@ public class ParkingLot {
         }
         Car car = ticketCarMap.get(parkingTicket);
         ticketCarMap.remove(parkingTicket);
-        position += 1;
+        availablePosition += 1;
         return car;
     }
 }
