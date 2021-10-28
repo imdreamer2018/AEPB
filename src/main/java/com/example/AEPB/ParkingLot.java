@@ -12,6 +12,11 @@ public class ParkingLot {
         this.parkingLotNumber = parkingLotNumber;
     }
 
+    public ParkingLot(int parkingLotNumber, int position) {
+        this.position = position;
+        this.parkingLotNumber = parkingLotNumber;
+    }
+
     public ParkingLot() { }
 
     public int getParkingLotNumber() {

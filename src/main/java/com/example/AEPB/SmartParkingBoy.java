@@ -1,8 +1,10 @@
 package com.example.AEPB;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SmartParkingBoy {
 
@@ -15,6 +17,10 @@ public class SmartParkingBoy {
     public ParkingTicket parkingCar(Car car) {
         if (car == null)
             throw new NullPointerException("you can not give me a null car");
+        List<ParkingLot> collect = parkingLotList.stream()
+                .filter(parkingLot -> parkingLot.getAvailablePosition() > 0)
+                .sorted(Comparator.comparing(parkingLot -> parkingLot.getAvailablePosition() / 50)).collect(Collectors.toList());
+        Collections.reverse(collect);
         return parkingLotList.stream()
                              .min(Comparator.comparing(ParkingLot::getAvailablePosition)
                                                      .reversed()
