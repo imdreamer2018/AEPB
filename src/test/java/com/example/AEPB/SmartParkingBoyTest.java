@@ -83,7 +83,7 @@ class SmartParkingBoyTest {
     }
 
     @Test
-    void should_parking_in_order_when_smart_parking_boy_parking_car_given_valid_car_and_the_same_remaining_position_of_parking_lot() {
+    void should_parking_in_order_when_smart_parking_boy_parking_car_given_same_largest_remaining_position_of_parking_lot() {
         LotsOfParing(parkingLot1, 49);
         LotsOfParing(parkingLot2, 48);
         LotsOfParing(parkingLot3, 47);
